@@ -38,9 +38,27 @@ namespace GradeBook.GradeBooks
             if (indexOfGrade > BIndex && indexOfGrade <= CIndex) return 'C';
             if (indexOfGrade > CIndex && indexOfGrade <= DIndex) return 'D';
 
-
             return 'F';
         }
+
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calcuate a studen'ts overall grade.");
+                    }
+            if (Students.Count >= 5) base.CalculateStatistics();
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            if (Students.Count < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calcuate a studen'ts overall grade.");
+            }
+            if (Students.Count >= 5) base.CalculateStudentStatistics(name);
+        }
+
 
         private Exception InvalidOperationException()
         {
