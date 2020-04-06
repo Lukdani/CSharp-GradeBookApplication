@@ -36,7 +36,7 @@ namespace GradeBook.GradeBooks
             if (indexOfGrade <= AIndex) return 'A';
             if (indexOfGrade > AIndex && indexOfGrade <= BIndex) return 'B';
             if (indexOfGrade > BIndex && indexOfGrade <= CIndex) return 'C';
-            if (indexOfGrade > DIndex && indexOfGrade <= DIndex) return 'D';
+            if (indexOfGrade > CIndex && indexOfGrade <= DIndex) return 'D';
 
 
             return 'F';
