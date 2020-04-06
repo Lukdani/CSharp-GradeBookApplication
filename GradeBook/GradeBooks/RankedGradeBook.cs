@@ -26,10 +26,10 @@ namespace GradeBook.GradeBooks
             averageGrades.Sort();
             averageGrades.Reverse();
             int indexOfGrade = averageGrades.FindIndex(grade => grade == averageGrade);
-            double AIndex = Students.Count * 0.20;
-            double BIndex = Students.Count * 0.40;
-            double CIndex = Students.Count * 0.60;
-            double DIndex = Students.Count * 0.80;
+            double AIndex = Students.Count * 0.20 -1;
+            double BIndex = Students.Count * 0.40 -1 ;
+            double CIndex = Students.Count * 0.60 -1 ;
+            double DIndex = Students.Count * 0.80 -1;
 
             if (Students.Count < 5) throw InvalidOperationException();
 
