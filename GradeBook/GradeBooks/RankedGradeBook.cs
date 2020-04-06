@@ -15,5 +15,36 @@ namespace GradeBook.GradeBooks
         {
             this.Type = GradeBookType.Ranked;
         }
+
+        public override char GetLetterGrade(double averageGrade)
+        {
+            var averageGrades = new List<double>();
+            foreach (Student student in Students)
+            {
+                averageGrades.Add(student.AverageGrade);
+            }
+            averageGrades.Sort();
+            averageGrades.Reverse();
+            int indexOfGrade = averageGrades.FindIndex(grade => grade == averageGrade);
+            double AIndex = Students.Count * 0.20;
+            double BIndex = Students.Count * 0.40;
+            double CIndex = Students.Count * 0.60;
+            double DIndex = Students.Count * 0.80;
+
+            if (Students.Count < 5) throw InvalidOperationException();
+
+            if (indexOfGrade <= AIndex) return 'A';
+            if (indexOfGrade > AIndex && indexOfGrade <= BIndex) return 'B';
+            if (indexOfGrade > BIndex && indexOfGrade <= CIndex) return 'C';
+            if (indexOfGrade > DIndex && indexOfGrade <= DIndex) return 'D';
+
+
+            return 'F';
+        }
+
+        private Exception InvalidOperationException()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
